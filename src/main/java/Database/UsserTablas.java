@@ -1,4 +1,4 @@
-package com.proyectobeta.model;
+package Database;
 
 public class UsserTablas {
     private int id;

@@ -1,4 +1,4 @@
-package com.proyectobeta.model;
+package Database;
 
 public class ProductosTablas {
     private int id;

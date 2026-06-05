@@ -1,12 +1,16 @@
 package Database;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
 
 public class tablas {
 
     public static void crearTablas() {
+
+        String url = "jdbc:sqlite:db/database_beta.db";
+
         String tablaUsuarios = """
                 CREATE TABLE IF NOT EXISTS usuarios (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,14 +31,13 @@ public class tablas {
                 );
                 """;
 
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = DriverManager.getConnection(url);
              Statement stmt = conn.createStatement()) {
 
-            if (conn != null) {
-                stmt.execute(tablaUsuarios);
-                stmt.execute(tablaProductos);
-                System.out.println("Tablas 'usuarios' y 'productos' inicializadas con éxito.");
-            }
+           stmt.execute(tablaUsuarios);
+           stmt.execute(tablaProductos);
+            System.out.println("Base de datos y tablas listas");
+
         } catch (SQLException e) {
             System.err.println("Error al crear las tablas: " + e.getMessage());
         }
