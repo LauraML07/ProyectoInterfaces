@@ -24,10 +24,9 @@ public class tablas {
         String tablaProductos = """
                 CREATE TABLE IF NOT EXISTS tareas (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nombre_producto TEXT NOT NULL,
-                    categoria TEXT NOT NULL,
-                    precio REAL NOT NULL DEFAULT 0.0,
-                    stock INTEGER NOT NULL DEFAULT 0
+                    marca TEXT NOT NULL,
+                    matricula TEXT NOT NULL,
+                    fecha_matricula DATETIME DEFAULT CURRENT_TIMESTAMP
                 );
                 """;
 
