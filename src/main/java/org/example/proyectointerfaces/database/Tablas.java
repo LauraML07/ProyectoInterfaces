@@ -1,4 +1,4 @@
-package database;
+package org.example.proyectointerfaces.database;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -24,7 +24,7 @@ public class Tablas {
                     marca TEXT NOT NULL,
                     matricula TEXT NOT NULL,
                     fecha_matricula TEXT DEFAULT CURRENT_TIMESTAMP,
-                    n-puertas TEXT NOT NULL
+                    "n-puertas" TEXT NOT NULL
                 );
                 """;
 

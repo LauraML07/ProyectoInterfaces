@@ -1,8 +1,9 @@
 package org.example.proyectointerfaces.dao;
 
-// 1. IMPORTAMOS LAS CLASES DE JAIME
-import Database.DatabaseConnection;
-import Database.CochesTablas;
+
+import org.example.proyectointerfaces.database.CochesTablas;
+import org.example.proyectointerfaces.database.DatabaseConnection;
+import org.example.proyectointerfaces.database.Tablas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,6 @@ public class CocheDAOImpl implements CocheDAO {
 
     @Override
     public boolean insertar(CochesTablas coche) {
-        // 2. ADAPTADO A LAS COLUMNAS DE JAIME (marca, matricula, fecha_matricula, n-puertas)
         String sql = "INSERT INTO coches (marca, matricula, fecha_matricula, \"n-puertas\") VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -43,7 +43,6 @@ public class CocheDAOImpl implements CocheDAO {
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                // 3. ADAPTADO PORQUE JAIME NO HIZO CONSTRUCTOR VACÍO
                 CochesTablas coche = new CochesTablas(
                         rs.getInt("id"),
                         rs.getString("marca"),
@@ -114,5 +113,57 @@ public class CocheDAOImpl implements CocheDAO {
             System.err.println("Error al buscar coche por ID: " + e.getMessage());
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        Tablas.crearTablas(); // Ajusta este nombre si Jaime lo llamó diferente
+
+        // Instanciamos tu super DAO
+        CocheDAO cocheDAO = new CocheDAOImpl();
+
+        System.out.println("=== INICIANDO PRUEBAS DEL DAO ===");
+
+        // 1. PRUEBA: INSERTAR
+        System.out.println("\n--- 1. Probando INSERTAR ---");
+        // Le pasamos un 0 en el ID porque la base de datos es AUTOINCREMENT y se lo asignará sola
+        CochesTablas cocheNuevo = new CochesTablas(0, "Toyota", "1234-ABC", LocalDate.now(), 5);
+        boolean insertado = cocheDAO.insertar(cocheNuevo);
+        System.out.println("¿Coche insertado correctamente? " + insertado);
+
+        // 2. PRUEBA: OBTENER TODOS
+        System.out.println("\n--- 2. Probando OBTENER TODOS ---");
+        List<CochesTablas> listaCoches = cocheDAO.obtenerTodos();
+        for (CochesTablas c : listaCoches) {
+            System.out.println("ID: " + c.getId() + " | Marca: " + c.getMarca() + " | Matrícula: " + c.getMatricula() + " | Fecha: " + c.getFecha_matricula());
+        }
+
+        // 3. PRUEBA: BUSCAR POR ID y ACTUALIZAR
+        if (!listaCoches.isEmpty()) {
+            // Cogemos el ID del primer coche que haya en la lista para probar
+            int idPrueba = listaCoches.get(0).getId();
+
+            System.out.println("\n--- 3. Probando BUSCAR POR ID (ID: " + idPrueba + ") ---");
+            CochesTablas cocheBuscado = cocheDAO.buscarPorId(idPrueba);
+            System.out.println("Coche encontrado: " + cocheBuscado.getMarca() + " - " + cocheBuscado.getMatricula());
+
+            System.out.println("\n--- 4. Probando ACTUALIZAR ---");
+            // Le cambiamos la marca al coche que acabamos de buscar
+            cocheBuscado.setMarca("Honda Actualizado");
+            boolean actualizado = cocheDAO.actualizar(cocheBuscado);
+            System.out.println("¿Coche actualizado correctamente? " + actualizado);
+
+            // Volvemos a buscarlo para confirmar que se ha guardado el cambio
+            CochesTablas cocheComprobacion = cocheDAO.buscarPorId(idPrueba);
+            System.out.println("Marca confirmada en BD: " + cocheComprobacion.getMarca());
+
+            System.out.println("\n--- 5. Probando ELIMINAR ---");
+            boolean eliminado = cocheDAO.eliminar(idPrueba);
+            System.out.println("¿Coche eliminado correctamente? " + eliminado);
+
+        } else {
+            System.out.println("\nNo hay coches en la base de datos para probar actualizar o eliminar.");
+        }
+
+        System.out.println("\n=== PRUEBAS FINALIZADAS ===");
     }
 }

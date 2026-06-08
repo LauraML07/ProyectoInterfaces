@@ -1,6 +1,6 @@
 package org.example.proyectointerfaces;
 
-import database.Tablas;
+import org.example.proyectointerfaces.database.Tablas;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

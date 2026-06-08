@@ -1,5 +1,7 @@
 package org.example.proyectointerfaces.dao;
 
+import org.example.proyectointerfaces.database.CochesTablas;
+
 import java.util.List;
 
 public interface CocheDAO {
