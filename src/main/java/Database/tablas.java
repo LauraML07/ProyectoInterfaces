@@ -9,15 +9,13 @@ public class tablas {
 
     public static void crearTablas() {
 
-        String url = "jdbc:sqlite:db/database_beta.db";
+        DatabaseConnection connect = (DatabaseConnection) DatabaseConnection.getConnection();
 
         String tablaUsuarios = """
                 CREATE TABLE IF NOT EXISTS usuarios (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nombre TEXT NOT NULL,
-                    correo TEXT UNIQUE NOT NULL,
-                    contraseña TEXT NOT NULL,
-                    fecha_nacimiento DATETIME DEFAULT CURRENT_TIMESTAMP
+                    contraseña TEXT NOT NULL
                 );
                 """;
 
@@ -26,12 +24,12 @@ public class tablas {
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     marca TEXT NOT NULL,
                     matricula TEXT NOT NULL,
-                    fecha_matricula DATETIME DEFAULT CURRENT_TIMESTAMP
+                    fecha_matricula DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    n-puertas TEXT NOT NULL
                 );
                 """;
 
-        try (Connection conn = DriverManager.getConnection(url);
-             Statement stmt = conn.createStatement()) {
+        try (Statement stmt = connect.createStatement()) {
 
            stmt.execute(tablaUsuarios);
            stmt.execute(tablaProductos);

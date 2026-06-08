@@ -3,16 +3,12 @@ package Database;
 public class UsserTablas {
     private int id;
     private String nombre;
-    private String correo;
     private String contraseña;
-    private String fechaNacimiento;
 
-    public UsserTablas(int id, String nombre, String correo, String contraseña, String fechaNacimiento) {
+    public UsserTablas(int id, String nombre, String contraseña) {
         this.id = id;
         this.nombre = nombre;
-        this.correo = correo;
         this.contraseña = contraseña;
-        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getId() {
@@ -31,27 +27,11 @@ public class UsserTablas {
         this.nombre = nombre;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
     public String getContraseña() {
         return contraseña;
     }
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
     }
 }
