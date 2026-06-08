@@ -1,7 +1,8 @@
 package org.example.proyectointerfaces.dao;
 
-// Asegúrate de que este import apunte a donde Jaime creó la clase de conexión
-import org.example.proyectointerfaces.database.DatabaseConnection;
+// 1. IMPORTAMOS LAS CLASES DE JAIME
+import Database.DatabaseConnection;
+import Database.CochesTablas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,13 +16,15 @@ public class CocheDAOImpl implements CocheDAO {
 
     @Override
     public boolean insertar(CochesTablas coche) {
-        String sql = "INSERT INTO coches (marca, kilometraje, fecha_matriculacion) VALUES (?, ?, ?)";
+        // 2. ADAPTADO A LAS COLUMNAS DE JAIME (marca, matricula, fecha_matricula, n-puertas)
+        String sql = "INSERT INTO coches (marca, matricula, fecha_matricula, \"n-puertas\") VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, coche.getMarca());
-            pstmt.setDouble(2, coche.getKilometraje());
-            pstmt.setString(3, coche.getFechaMatriculacion().toString());
+            pstmt.setString(2, coche.getMatricula());
+            pstmt.setString(3, coche.getFecha_matricula().toString());
+            pstmt.setInt(4, coche.getN_puertas());
 
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -40,11 +43,14 @@ public class CocheDAOImpl implements CocheDAO {
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                CochesTablas coche = new CochesTablas();
-                coche.setId(rs.getInt("id"));
-                coche.setMarca(rs.getString("marca"));
-                coche.setKilometraje(rs.getDouble("kilometraje"));
-                coche.setFechaMatriculacion(LocalDate.parse(rs.getString("fecha_matriculacion")));
+                // 3. ADAPTADO PORQUE JAIME NO HIZO CONSTRUCTOR VACÍO
+                CochesTablas coche = new CochesTablas(
+                        rs.getInt("id"),
+                        rs.getString("marca"),
+                        rs.getString("matricula"),
+                        LocalDate.parse(rs.getString("fecha_matricula")),
+                        rs.getInt("n-puertas")
+                );
                 listaCoches.add(coche);
             }
         } catch (SQLException e) {
@@ -55,14 +61,15 @@ public class CocheDAOImpl implements CocheDAO {
 
     @Override
     public boolean actualizar(CochesTablas coche) {
-        String sql = "UPDATE coches SET marca = ?, kilometraje = ?, fecha_matriculacion = ? WHERE id = ?";
+        String sql = "UPDATE coches SET marca = ?, matricula = ?, fecha_matricula = ?, \"n-puertas\" = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, coche.getMarca());
-            pstmt.setDouble(2, coche.getKilometraje());
-            pstmt.setString(3, coche.getFechaMatriculacion().toString());
-            pstmt.setInt(4, coche.getId());
+            pstmt.setString(2, coche.getMatricula());
+            pstmt.setString(3, coche.getFecha_matricula().toString());
+            pstmt.setInt(4, coche.getN_puertas());
+            pstmt.setInt(5, coche.getId());
 
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -95,12 +102,13 @@ public class CocheDAOImpl implements CocheDAO {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                CochesTablas coche = new CochesTablas();
-                coche.setId(rs.getInt("id"));
-                coche.setMarca(rs.getString("marca"));
-                coche.setKilometraje(rs.getDouble("kilometraje"));
-                coche.setFechaMatriculacion(LocalDate.parse(rs.getString("fecha_matriculacion")));
-                return coche;
+                return new CochesTablas(
+                        rs.getInt("id"),
+                        rs.getString("marca"),
+                        rs.getString("matricula"),
+                        LocalDate.parse(rs.getString("fecha_matricula")),
+                        rs.getInt("n-puertas")
+                );
             }
         } catch (SQLException e) {
             System.err.println("Error al buscar coche por ID: " + e.getMessage());
