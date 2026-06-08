@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="492.0" prefWidth="269.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" text="Concesionario">
+      <font>
+         <Font size="17.0" />
+      </font></Label>
+   <TextField onAction="#onInsertButtonClick" promptText="Marca" />
+   <TextField promptText="Matricula" />
+   <TextField promptText="Fecha Matrícula" />
+   <TextField promptText="Nº Puertas" />
+    <Button onAction="#onInsertButtonClick" text="Insertar producto" />
+   <TextField promptText="Id" />
+   <Button mnemonicParsing="false" onAction="#onEliminarButtonClick" text="Eliminar" />
+   <TextField promptText="Id" />
+   <TextField promptText="Marca" />
+   <TextField promptText="Matricula" />
+   <TextField promptText="Fecha Matricula" />
+   <TextField promptText="Nº Puertas" />
+   <Button mnemonicParsing="false" onAction="#onActualizarButtonClick" text="Actualizar" />
+   <TextField promptText="Id" />
+   <Button mnemonicParsing="false" onAction="#onBuscarPorIDButtonClick" text="Buscar por Id" />
+</VBox>

@@ -20,4 +20,17 @@ public class HelloController {
     public void onByeButtonClick(ActionEvent actionEvent) {
 
     }
+
+    public void onInsertButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void onEliminarButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void onActualizarButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void onBuscarPorIDButtonClick(ActionEvent actionEvent) {
+
+    }
 }
