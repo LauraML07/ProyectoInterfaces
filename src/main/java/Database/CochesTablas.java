@@ -1,13 +1,15 @@
 package Database;
 
+import java.time.LocalDate;
+
 public class CochesTablas {
     private int id;
     private String marca;
     private String matricula;
-    private int fecha_matricula;
+    private LocalDate fecha_matricula;
     private int n_puertas;
 
-    public CochesTablas(int id, String marca, String matricula, int fecha_matricula, int n_puertas) {
+    public CochesTablas(int id, String marca, String matricula, LocalDate fecha_matricula, int n_puertas) {
         this.id = id;
         this.marca = marca;
         this.matricula = matricula;
@@ -39,11 +41,11 @@ public class CochesTablas {
         this.matricula = matricula;
     }
 
-    public int getFecha_matricula() {
+    public LocalDate getFecha_matricula() {
         return fecha_matricula;
     }
 
-    public void setFecha_matricula(int fecha_matricula) {
+    public void setFecha_matricula(LocalDate fecha_matricula) {
         this.fecha_matricula = fecha_matricula;
     }
 

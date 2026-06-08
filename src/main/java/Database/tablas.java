@@ -9,7 +9,7 @@ public class tablas {
 
     public static void crearTablas() {
 
-        DatabaseConnection connect = (DatabaseConnection) DatabaseConnection.getConnection();
+        Connection connect = DatabaseConnection.getConnection();
 
         String tablaUsuarios = """
                 CREATE TABLE IF NOT EXISTS usuarios (
@@ -19,12 +19,12 @@ public class tablas {
                 );
                 """;
 
-        String tablaProductos = """
-                CREATE TABLE IF NOT EXISTS tareas (
+        String tablaCoches = """
+                CREATE TABLE IF NOT EXISTS coches (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     marca TEXT NOT NULL,
                     matricula TEXT NOT NULL,
-                    fecha_matricula DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    fecha_matricula TEXT DEFAULT CURRENT_TIMESTAMP,
                     n-puertas TEXT NOT NULL
                 );
                 """;
@@ -32,7 +32,7 @@ public class tablas {
         try (Statement stmt = connect.createStatement()) {
 
            stmt.execute(tablaUsuarios);
-           stmt.execute(tablaProductos);
+           stmt.execute(tablaCoches);
             System.out.println("Base de datos y tablas listas");
 
         } catch (SQLException e) {

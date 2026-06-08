@@ -3,7 +3,6 @@ package Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DatabaseConnection {
 
@@ -19,9 +18,5 @@ public class DatabaseConnection {
             System.err.println("Error al conectar a la base de datos" + e.getMessage());
         }
         return connection;
-    }
-
-    public Statement createStatement() {
-        return createStatement();
     }
 }
