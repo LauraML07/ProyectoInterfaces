@@ -1,14 +1,14 @@
-package Database;
+package database;
 
 public class UsserTablas {
     private int id;
     private String nombre;
-    private String contraseña;
+    private String contrasena;
 
-    public UsserTablas(int id, String nombre, String contraseña) {
+    public UsserTablas(int id, String nombre, String contrasena) {
         this.id = id;
         this.nombre = nombre;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public int getId() {
@@ -28,10 +28,10 @@ public class UsserTablas {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasena;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 }

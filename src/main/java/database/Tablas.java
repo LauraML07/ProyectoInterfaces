@@ -1,11 +1,10 @@
-package Database;
+package database;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
 
-public class tablas {
+public class Tablas {
 
     public static void crearTablas() {
 
@@ -15,7 +14,7 @@ public class tablas {
                 CREATE TABLE IF NOT EXISTS usuarios (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nombre TEXT NOT NULL,
-                    contraseña TEXT NOT NULL
+                    contrasena TEXT NOT NULL
                 );
                 """;
 

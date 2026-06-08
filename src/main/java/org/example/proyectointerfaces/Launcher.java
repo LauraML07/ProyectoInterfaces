@@ -1,6 +1,6 @@
 package org.example.proyectointerfaces;
 
-import Database.tablas;
+import database.Tablas;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -9,7 +9,7 @@ public class Launcher extends Application{
     @Override
     public void start(Stage stage) throws Exception {
 
-        tablas.crearTablas();
+        Tablas.crearTablas();
     }
 
     public static void main(String[] args) {
