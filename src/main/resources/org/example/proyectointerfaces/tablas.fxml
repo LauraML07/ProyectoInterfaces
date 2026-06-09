@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.CONTROLLER_TABLAS">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.controllers.TablaController">
    <children>
       <TableView fx:id="Tablas" layoutX="93.0" layoutY="95.0" prefHeight="178.0" prefWidth="414.0">
         <columns>
@@ -21,7 +21,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="244.0" layoutY="304.0" mnemonicParsing="false" onAction="#onVolverMenuButtonClick" prefHeight="36.0" prefWidth="111.0" text="Volver al menu" style="-fx-background-color: #616161; -fx-text-fill: white;" />
+      <Button layoutX="244.0" layoutY="304.0" mnemonicParsing="false" onAction="#onVolverMenuButtonClick" prefHeight="36.0" prefWidth="140.0" style="-fx-background-color: #616161; -fx-text-fill: white;" text="Volver al menu" />
    </children>
     <stylesheets>
         <URL value="@../../../css/style.css" />

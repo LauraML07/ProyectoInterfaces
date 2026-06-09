@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.net.URL?>
-<VBox alignment="CENTER" prefHeight="765.0" prefWidth="269.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="765.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.controllers.MenuControler">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -16,38 +16,68 @@
          <Font size="18.0" />
       </font></Label>
    <Label fx:id="lblBienvenida" text="Bienvenido" />
-   <Label fx:id="welcomeText1" layoutX="92.0" layoutY="30.0" text="Insertar Producto">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Label>
-   <TextField fx:id="InsMarca" onAction="#onInsertButtonClick" promptText="Marca" />
-   <TextField fx:id="InsMatricula" promptText="Matricula" />
-   <TextField fx:id="InsPuertas" promptText="Nº Puertas" />
-    <Button onAction="#onInsertButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Insertar producto" />
-   <Label fx:id="welcomeText11" layoutX="91.0" layoutY="77.0" text="Eliminar">
-      <font>
-         <Font size="14.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="10.0" />
-      </VBox.margin>
-   </Label>
-   <TextField fx:id="EliminarId" promptText="Id" />
-   <Button mnemonicParsing="false" onAction="#onEliminarButtonClick" style="-fx-background-color: #E53935; -fx-text-fill: white;" text="Eliminar" />
-   <Label fx:id="welcomeText111" layoutX="120.0" layoutY="345.0" text="Actualizar">
-      <font>
-         <Font size="14.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="10.0" />
-      </VBox.margin>
-   </Label>
-   <TextField fx:id="ActuId" promptText="Id" />
-   <TextField fx:id="ActuMarca" promptText="Marca" />
-   <TextField fx:id="ActuMatricula" promptText="Matricula" />
-   <TextField fx:id="ActuPuertas" promptText="Nº Puertas" />
-   <Button mnemonicParsing="false" onAction="#onActualizarButtonClick" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Actualizar" />
+   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <children>
+         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <children>
+               <Label fx:id="welcomeText1" text="Insertar Vehículo">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="InsMarca" onAction="#onInsertButtonClick" prefWidth="180.0" promptText="Marca" />
+               <TextField fx:id="InsMatricula" prefWidth="180.0" promptText="Matricula" />
+               <TextField fx:id="InsPuertas" prefWidth="180.0" promptText="Nº Puertas" />
+                <Button onAction="#onInsertButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Insertar producto" />
+               <Label fx:id="insertCoche" />
+            </children>
+            <padding>
+               <Insets left="20.0" right="20.0" />
+            </padding>
+         </VBox>
+         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <children>
+               <Label fx:id="welcomeText111" text="Actualizar">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="ActuId" prefWidth="180.0" promptText="Id" />
+               <TextField fx:id="ActuMarca" prefWidth="180.0" promptText="Marca" />
+               <TextField fx:id="ActuMatricula" prefWidth="180.0" promptText="Matricula" />
+               <TextField fx:id="ActuPuertas" prefWidth="180.0" promptText="Nº Puertas" />
+               <Button mnemonicParsing="false" onAction="#onActualizarButtonClick" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Actualizar" />
+            </children>
+            <padding>
+               <Insets left="20.0" right="20.0" />
+            </padding>
+         </VBox>
+         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <children>
+               <Label fx:id="welcomeText11" text="Eliminar">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="EliminarId" prefWidth="180.0" promptText="Id" />
+               <Button mnemonicParsing="false" onAction="#onEliminarButtonClick" style="-fx-background-color: #E53935; -fx-text-fill: white;" text="Eliminar" />
+               <Label fx:id="elimText" />
+            </children>
+            <padding>
+               <Insets left="20.0" right="20.0" />
+            </padding>
+         </VBox>
+      </children>
+      <padding>
+         <Insets left="20.0" right="20.0" />
+      </padding>
+   </HBox>
    <Label fx:id="welcomeText1111" layoutX="114.0" layoutY="476.0" text="Buscar por Id">
       <font>
          <Font size="14.0" />
@@ -56,7 +86,7 @@
          <Insets top="10.0" />
       </VBox.margin>
    </Label>
-   <TextField fx:id="BuscarId" promptText="Id" />
+   <TextField fx:id="BuscarId" maxWidth="200.0" prefWidth="180.0" promptText="Id" />
    <Button mnemonicParsing="false" onAction="#onBuscarPorIDButtonClick" style="-fx-background-color: #FF9800; -fx-text-fill: white;" text="Buscar por Id" />
    <Label fx:id="welcomeText11111" layoutX="104.0" layoutY="790.0" text="Ir a la tabla">
       <font>

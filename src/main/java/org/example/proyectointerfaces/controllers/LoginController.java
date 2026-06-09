@@ -1,35 +1,35 @@
-package org.example.proyectointerfaces;
+package org.example.proyectointerfaces.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyectointerfaces.dao.UsuarioDAO;
 import org.example.proyectointerfaces.dao.UsuarioDAOImpl;
 
-import static org.example.proyectointerfaces.HelloController.lblBienvenida;
-
-public class CONTROLLER_LOGIN {
+public class LoginController {
     @FXML
     public TextField LogUsuario;
     @FXML
     public TextField LogContrasena;
+    public Label txtUser;
 
     UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
     @FXML
     public void onLoginButtonClick(ActionEvent actionEvent) {
-        String usuario = LogUsuario.getText();
-        String password = LogContrasena.getText();
+        String usuario = LogUsuario.getText().trim();
+        String password = LogContrasena.getText().trim();
 
         boolean ok = usuarioDAO.login(usuario,password);
         if (ok) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("org/example/proyectointerfaces/crud.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/crud.fxml"));
                 Scene scene = new Scene(loader.load());
 
-                HelloController controller = loader.getController();
+                MenuControler controller = loader.getController();
 
                 controller.setTexto(LogUsuario.getText());
 
@@ -40,7 +40,7 @@ public class CONTROLLER_LOGIN {
                 e.printStackTrace();
             }
         } else {
-            lblBienvenida.setText("Usuario incorrecto");
+            txtUser.setText("Usuario incorrecto");
         }
     }
 }

@@ -10,11 +10,15 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crud.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        String css = this.getClass().getResource("/css/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        try {
+            String css = getClass().getResource("/css/style.css").toExternalForm();
+            scene.getStylesheets().add(css);
+        } catch (Exception e) {
+            System.out.println("No se pudo cargar el archivo CSS, continuando sin estilos...");
+        }
+        stage.setTitle("Acceso al Sistema");
         stage.setScene(scene);
         stage.show();
     }

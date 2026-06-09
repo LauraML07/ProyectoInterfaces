@@ -1,4 +1,4 @@
-package org.example.proyectointerfaces;
+package org.example.proyectointerfaces.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +16,7 @@ import org.example.proyectointerfaces.database.CochesTablas;
 
 import java.util.List;
 
-public class CONTROLLER_TABLAS {
+public class TablaController {
     @FXML
     public TableView<CochesTablas> Tablas;
     @FXML
@@ -39,8 +39,8 @@ public class CONTROLLER_TABLAS {
         ColId.setCellValueFactory(new PropertyValueFactory<>("id"));
         ColMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
         ColMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));
-        ColFecha.setCellValueFactory(new PropertyValueFactory<>("fechaMatricula"));
-        ColPuertas.setCellValueFactory(new PropertyValueFactory<>("nPuertas"));
+        ColFecha.setCellValueFactory(new PropertyValueFactory<>("fecha_matricula"));
+        ColPuertas.setCellValueFactory(new PropertyValueFactory<>("n_puertas"));
 
         Tablas.setItems(listaCoches);
         cargarDatosDesdeBD();
@@ -56,10 +56,10 @@ public class CONTROLLER_TABLAS {
     @FXML
     public void onVolverMenuButtonClick(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/proyecto2/fxml/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/crud.fxml"));
             Scene scene = new Scene(loader.load());
 
-            HelloController controller = loader.getController();
+            MenuControler controller = loader.getController();
             controller.setTexto(usuarioConectado);
 
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();

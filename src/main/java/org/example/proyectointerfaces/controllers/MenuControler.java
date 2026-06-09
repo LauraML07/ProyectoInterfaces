@@ -1,4 +1,4 @@
-package org.example.proyectointerfaces;
+package org.example.proyectointerfaces.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import org.example.proyectointerfaces.database.CochesTablas;
 
 import java.time.LocalDate;
 
-public class HelloController {
+public class MenuControler {
     @FXML
     public TextField InsMarca;
     @FXML
@@ -34,10 +34,14 @@ public class HelloController {
     @FXML
     public TextField BuscarId;
     @FXML
-    public static Label lblBienvenida;
+    public Label lblBienvenida;
+    @FXML
+    public Label insertCoche;
+
+    public Label elimText;
     CocheDAO cocheDAO = new CocheDAOImpl();
 
-    public static void setTexto(String usuario) {
+    public void setTexto(String usuario) {
         lblBienvenida.setText("Bienvenido, " + usuario);
     }
 
@@ -50,12 +54,14 @@ public class HelloController {
 
         CochesTablas coche = new CochesTablas(0,marca,matricula,fecha,nPuertas);
         cocheDAO.insertar(coche);
+        insertCoche.setText("Vehículo insertado");
     }
 
     @FXML
     public void onEliminarButtonClick(ActionEvent actionEvent) {
         int id = Integer.parseInt(EliminarId.getText());
         cocheDAO.eliminar(id);
+        elimText.setText("Vehículo de id: "+id+" eliminado");
     }
 
     @FXML
@@ -78,7 +84,7 @@ public class HelloController {
     @FXML
     public void onIrTablaButtonClick(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("org/example/proyectointerfaces/Tablas.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/tablas.fxml"));
             Scene scene = new Scene(loader.load());
 
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();

@@ -17,7 +17,7 @@ public class CocheDAOImpl implements CocheDAO {
 
     @Override
     public boolean insertar(CochesTablas coche) {
-        String sql = "INSERT INTO coches (marca, matricula, fecha_matricula, \"n-puertas\") VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO coches (marca, matricula, fecha_matricula, n_puertas) VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -48,19 +48,21 @@ public class CocheDAOImpl implements CocheDAO {
                         rs.getString("marca"),
                         rs.getString("matricula"),
                         LocalDate.parse(rs.getString("fecha_matricula")),
-                        rs.getInt("n-puertas")
+                        rs.getInt("n_puertas")
                 );
                 listaCoches.add(coche);
+                System.out.println("Coche cargado correctamente en memoria: " + coche.getMarca());
             }
         } catch (SQLException e) {
-            System.err.println("Error al obtener todos los coches: " + e.getMessage());
+            System.err.println("Error al obtener todos los coches ");
+            e.printStackTrace();
         }
         return listaCoches;
     }
 
     @Override
     public boolean actualizar(CochesTablas coche) {
-        String sql = "UPDATE coches SET marca = ?, matricula = ?, fecha_matricula = ?, \"n-puertas\" = ? WHERE id = ?";
+        String sql = "UPDATE coches SET marca = ?, matricula = ?, fecha_matricula = ?, n_puertas = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
