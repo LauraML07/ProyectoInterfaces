@@ -33,4 +33,7 @@ public class HelloController {
     public void onBuscarPorIDButtonClick(ActionEvent actionEvent) {
 
     }
+
+    public void onIrTablaButtonClick(ActionEvent actionEvent) {
+    }
 }

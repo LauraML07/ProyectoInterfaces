@@ -17,11 +17,11 @@
          <VBox.margin>
             <Insets bottom="20.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin></Label>
-      <TextField prefWidth="19.0" promptText="Usuario">
+      <TextField fx:id="LogUsuario" prefWidth="19.0" promptText="Usuario">
          <VBox.margin>
             <Insets bottom="20.0" left="10.0" right="10.0" top="5.0" />
          </VBox.margin></TextField>
-      <TextField prefWidth="19.0" promptText="Contraseña">
+      <TextField fx:id="LogContrasena" prefWidth="19.0" promptText="Contraseña">
          <VBox.margin>
                <Insets bottom="20.0" left="10.0" right="10.0" top="5.0" />
          </VBox.margin></TextField>

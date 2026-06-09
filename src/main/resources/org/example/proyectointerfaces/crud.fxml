@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="492.0" prefWidth="269.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.HelloController">
+<VBox alignment="CENTER" prefHeight="765.0" prefWidth="269.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -14,19 +14,20 @@
       <font>
          <Font size="17.0" />
       </font></Label>
-   <TextField onAction="#onInsertButtonClick" promptText="Marca" />
-   <TextField promptText="Matricula" />
-   <TextField promptText="Fecha Matrícula" />
-   <TextField promptText="Nº Puertas" />
+   <TextField fx:id="InsMarca" onAction="#onInsertButtonClick" promptText="Marca" />
+   <TextField fx:id="InsMatricula" promptText="Matricula" />
+   <TextField fx:id="InsFecha" promptText="Fecha Matrícula" />
+   <TextField fx:id="InsPuertas" promptText="Nº Puertas" />
     <Button onAction="#onInsertButtonClick" text="Insertar producto" />
-   <TextField promptText="Id" />
+   <TextField fx:id="EliminarId" promptText="Id" />
    <Button mnemonicParsing="false" onAction="#onEliminarButtonClick" text="Eliminar" />
-   <TextField promptText="Id" />
-   <TextField promptText="Marca" />
-   <TextField promptText="Matricula" />
-   <TextField promptText="Fecha Matricula" />
-   <TextField promptText="Nº Puertas" />
+   <TextField fx:id="ActuId" promptText="Id" />
+   <TextField fx:id="ActuMarca" promptText="Marca" />
+   <TextField fx:id="ActuMatricula" promptText="Matricula" />
+   <TextField fx:id="ActuFecha" promptText="Fecha Matricula" />
+   <TextField fx:id="ActuPuertas" promptText="Nº Puertas" />
    <Button mnemonicParsing="false" onAction="#onActualizarButtonClick" text="Actualizar" />
-   <TextField promptText="Id" />
+   <TextField fx:id="BuscarId" promptText="Id" />
    <Button mnemonicParsing="false" onAction="#onBuscarPorIDButtonClick" text="Buscar por Id" />
+   <Button mnemonicParsing="false" onAction="#onIrTablaButtonClick" text="Ir a la tabla" />
 </VBox>
