@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.time.LocalDate;
+
 public class HelloController {
     @FXML
     public TextField InsMarca;
@@ -34,6 +36,7 @@ public class HelloController {
     public void onInsertButtonClick(ActionEvent actionEvent) {
         String marca = InsMarca.getText();
         String matricula = InsMatricula.getText();
+        LocalDate fecha = LocalDate.now();
 
     }
 
