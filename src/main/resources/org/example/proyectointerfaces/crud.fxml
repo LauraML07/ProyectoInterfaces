@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <VBox alignment="CENTER" prefHeight="765.0" prefWidth="269.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -65,4 +66,7 @@
       </VBox.margin>
    </Label>
    <Button mnemonicParsing="false" onAction="#onIrTablaButtonClick" style="-fx-background-color: #616161; -fx-text-fill: white;" text="Ir a la tabla" />
+   <stylesheets>
+      <URL value="@../../../css/style.css" />
+   </stylesheets>
 </VBox>
