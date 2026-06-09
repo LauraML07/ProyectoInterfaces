@@ -56,4 +56,9 @@ public class CochesTablas {
     public void setN_puertas(int n_puertas) {
         this.n_puertas = n_puertas;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d,%s,%s,%s,%d",id,marca,matricula,fecha_matricula,n_puertas);
+    }
 }

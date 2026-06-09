@@ -2,9 +2,11 @@ package org.example.proyectointerfaces;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
+import org.example.proyectointerfaces.dao.CocheDAO;
+import org.example.proyectointerfaces.dao.CocheDAOImpl;
+import org.example.proyectointerfaces.database.CochesTablas;
 
 import java.time.LocalDate;
 
@@ -13,8 +15,6 @@ public class HelloController {
     public TextField InsMarca;
     @FXML
     public TextField InsMatricula;
-    @FXML
-    public TextField InsFecha;
     @FXML
     public TextField InsPuertas;
     @FXML
@@ -26,33 +26,47 @@ public class HelloController {
     @FXML
     public TextField ActuMatricula;
     @FXML
-    public TextField ActuFecha;
-    @FXML
     public TextField ActuPuertas;
     @FXML
     public TextField BuscarId;
+    CocheDAO cocheDAO = new CocheDAOImpl();
 
     @FXML
     public void onInsertButtonClick(ActionEvent actionEvent) {
         String marca = InsMarca.getText();
         String matricula = InsMatricula.getText();
         LocalDate fecha = LocalDate.now();
+        int nPuertas = Integer.parseInt(InsPuertas.getText());
 
+        CochesTablas coche = new CochesTablas(0,marca,matricula,fecha,nPuertas);
+        cocheDAO.insertar(coche);
     }
 
     @FXML
     public void onEliminarButtonClick(ActionEvent actionEvent) {
+        int id = Integer.parseInt(EliminarId.getText());
+        cocheDAO.eliminar(id);
     }
 
     @FXML
     public void onActualizarButtonClick(ActionEvent actionEvent) {
+        int id = Integer.parseInt(ActuId.getText());
+        String marca = ActuMarca.getText();
+        String matricula = ActuMatricula.getText();
+        LocalDate fecha = LocalDate.now();
+        int nPuertas = Integer.parseInt(ActuPuertas.getText());
+        CochesTablas coche = new CochesTablas(0,marca,matricula,fecha,nPuertas);
+        cocheDAO.actualizar(coche);
     }
 
     @FXML
     public void onBuscarPorIDButtonClick(ActionEvent actionEvent) {
+        int id = Integer.parseInt(BuscarId.getText());
+        System.out.println(cocheDAO.buscarPorId(id));
     }
 
     @FXML
     public void onIrTablaButtonClick(ActionEvent actionEvent) {
+
     }
 }
