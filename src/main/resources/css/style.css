@@ -1,0 +1,38 @@
+.root {
+    -fx-background-color: #f4f6f8; /* Un gris muy clarito y moderno */
+    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Letra limpia */
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+}
+
+.button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.boton-peligro {
+    -fx-background-color: #dc3545;
+}
+
+.boton-peligro:hover {
+    -fx-background-color: #b02a37;
+}
