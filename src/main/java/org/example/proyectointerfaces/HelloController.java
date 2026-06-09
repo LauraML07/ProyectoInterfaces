@@ -4,36 +4,52 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    public TextField InsMarca;
+    @FXML
+    public TextField InsMatricula;
+    @FXML
+    public TextField InsFecha;
+    @FXML
+    public TextField InsPuertas;
+    @FXML
+    public TextField EliminarId;
+    @FXML
+    public TextField ActuId;
+    @FXML
+    public TextField ActuMarca;
+    @FXML
+    public TextField ActuMatricula;
+    @FXML
+    public TextField ActuFecha;
+    @FXML
+    public TextField ActuPuertas;
+    @FXML
+    public TextField BuscarId;
 
     @FXML
-    private Button onHelloButtonClick;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    public void onByeButtonClick(ActionEvent actionEvent) {
-
-    }
-
     public void onInsertButtonClick(ActionEvent actionEvent) {
+        String marca = InsMarca.getText();
+        String matricula = InsMatricula.getText();
+
     }
 
+    @FXML
     public void onEliminarButtonClick(ActionEvent actionEvent) {
     }
 
+    @FXML
     public void onActualizarButtonClick(ActionEvent actionEvent) {
     }
 
+    @FXML
     public void onBuscarPorIDButtonClick(ActionEvent actionEvent) {
-
     }
 
+    @FXML
     public void onIrTablaButtonClick(ActionEvent actionEvent) {
     }
 }
