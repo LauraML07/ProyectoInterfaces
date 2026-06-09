@@ -6,13 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.controllers.LoginController">
+<VBox id="vista-login" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectointerfaces.controllers.LoginController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
-   <stylesheets>
-      <URL value="@../../../css/style.css" />
-   </stylesheets>
    <Label alignment="CENTER" prefHeight="26.0" prefWidth="267.0" text="Introduzca su Usuario y contaseña" textAlignment="CENTER">
       <font>
          <Font size="17.0" />
@@ -31,7 +28,7 @@
          <Insets bottom="20.0" left="10.0" right="10.0" top="5.0" />
       </VBox.margin>
    </TextField>
-   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Login" textAlignment="CENTER">
+   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="73.0"  text="Login" textAlignment="CENTER">
       <VBox.margin>
          <Insets />
       </VBox.margin>

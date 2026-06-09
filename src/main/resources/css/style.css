@@ -1,38 +1,95 @@
-.root {
-    -fx-background-color: #f4f6f8; /* Un gris muy clarito y moderno */
-    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Letra limpia */
-}
-
 .label {
+    -fx-font-family: "Segoe UI Semibold", sans-serif;
     -fx-font-size: 14px;
-    -fx-text-fill: #333333;
 }
 
 .text-field {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-padding: 8px;
+    -fx-border-color: transparent transparent #cccccc transparent;
 }
 
 .button {
-    -fx-background-color: #007bff;
-    -fx-text-fill: white;
+    -fx-background-radius: 20px;
     -fx-font-weight: bold;
-    -fx-background-radius: 5px;
-    -fx-padding: 8px 15px;
+    -fx-padding: 10px 20px;
     -fx-cursor: hand;
+    -fx-text-fill: white;
 }
 
-.button:hover {
+
+#vista-login {
+    -fx-background-color: #ffffff;
+}
+
+
+#vista-login .label {
+    -fx-text-fill: #0056b3;
+}
+
+
+#vista-login .button {
+    -fx-background-color: #007bff;
+}
+#vista-login .button:hover {
     -fx-background-color: #0056b3;
 }
 
-.boton-peligro {
-    -fx-background-color: #dc3545;
+
+#vista-crud {
+    -fx-background-color: #f0fdf4;
 }
 
-.boton-peligro:hover {
-    -fx-background-color: #b02a37;
+#vista-crud .boton-peligro {
+    -fx-background-color: #dc3545;
+}
+#vista-crud .boton-peligro:hover {
+    -fx-background-color: #c82333;
+}
+
+
+#vista-tablas {
+    -fx-background-color: #f8fafc;
+}
+
+#vista-tablas .button {
+    -fx-background-color: #6c757d;
+}
+#vista-tablas .button:hover {
+    -fx-background-color: #5a6268;
+}
+
+
+#vista-tablas .table-view {
+    -fx-border-color: #dee2e6;
+    -fx-background-color: white;
+}
+
+.boton-insertar {
+    -fx-background-color: #28a745;
+}
+.boton-insertar:hover {
+    -fx-background-color: #218838;
+}
+
+.boton-actualizar {
+    -fx-background-color: #0056b3;
+}
+.boton-actualizar:hover {
+    -fx-background-color: #e0a800;
+}
+
+
+.boton-buscar {
+    -fx-background-color: #e0a800;
+}
+.boton-buscar:hover {
+    -fx-background-color: #138496;
+}
+
+.boton-tabla {
+    -fx-background-color: #5f2abd;
+}
+.boton-tabla:hover {
+    -fx-background-color: #23272b;
 }

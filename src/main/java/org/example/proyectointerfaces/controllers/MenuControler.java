@@ -71,7 +71,7 @@ public class MenuControler {
         String matricula = ActuMatricula.getText();
         LocalDate fecha = LocalDate.now();
         int nPuertas = Integer.parseInt(ActuPuertas.getText());
-        CochesTablas coche = new CochesTablas(0,marca,matricula,fecha,nPuertas);
+        CochesTablas coche = new CochesTablas(id,marca,matricula,fecha,nPuertas);
         cocheDAO.actualizar(coche);
     }
 
@@ -86,7 +86,8 @@ public class MenuControler {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/tablas.fxml"));
             Scene scene = new Scene(loader.load());
-
+            String css = getClass().getResource("/css/style.css").toExternalForm();
+            scene.getStylesheets().add(css);
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
 
             stage.setScene(scene);

@@ -28,6 +28,8 @@ public class LoginController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/proyectointerfaces/crud.fxml"));
                 Scene scene = new Scene(loader.load());
+                String css = getClass().getResource("/css/style.css").toExternalForm();
+                scene.getStylesheets().add(css);
 
                 MenuControler controller = loader.getController();
 
