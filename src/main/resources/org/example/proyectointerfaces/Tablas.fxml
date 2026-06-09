@@ -20,6 +20,6 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="244.0" layoutY="304.0" mnemonicParsing="false" onAction="#onVolverMenuButtonClick" prefHeight="36.0" prefWidth="111.0" text="Volver al menu" />
+      <Button layoutX="244.0" layoutY="304.0" mnemonicParsing="false" onAction="#onVolverMenuButtonClick" prefHeight="36.0" prefWidth="111.0" text="Volver al menu" style="-fx-background-color: #616161; -fx-text-fill: white;" />
    </children>
 </AnchorPane>
