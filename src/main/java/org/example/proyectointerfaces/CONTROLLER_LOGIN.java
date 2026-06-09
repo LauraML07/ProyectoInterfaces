@@ -26,7 +26,7 @@ public class CONTROLLER_LOGIN {
         boolean ok = usuarioDAO.login(usuario,password);
         if (ok) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/proyecto2/fxml/menu.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("org/example/proyectointerfaces/crud.fxml"));
                 Scene scene = new Scene(loader.load());
 
                 HelloController controller = loader.getController();

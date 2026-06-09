@@ -3,8 +3,11 @@ package org.example.proyectointerfaces;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.example.proyectointerfaces.dao.CocheDAO;
 import org.example.proyectointerfaces.dao.CocheDAOImpl;
 import org.example.proyectointerfaces.database.CochesTablas;
@@ -74,6 +77,17 @@ public class HelloController {
 
     @FXML
     public void onIrTablaButtonClick(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("org/example/proyectointerfaces/Tablas.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+
+        } catch (Exception e) {
+            System.out.println("Error al abrir la ventana de la tabla:");
+            e.printStackTrace();
+        }
     }
 }
