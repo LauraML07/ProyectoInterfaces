@@ -3,6 +3,7 @@ package org.example.proyectointerfaces;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.example.proyectointerfaces.dao.CocheDAO;
 import org.example.proyectointerfaces.dao.CocheDAOImpl;
@@ -29,7 +30,13 @@ public class HelloController {
     public TextField ActuPuertas;
     @FXML
     public TextField BuscarId;
+    @FXML
+    public static Label lblBienvenida;
     CocheDAO cocheDAO = new CocheDAOImpl();
+
+    public static void setTexto(String usuario) {
+        lblBienvenida.setText("Bienvenido, " + usuario);
+    }
 
     @FXML
     public void onInsertButtonClick(ActionEvent actionEvent) {

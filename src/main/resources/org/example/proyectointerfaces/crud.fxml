@@ -14,6 +14,7 @@
       <font>
          <Font size="18.0" />
       </font></Label>
+   <Label fx:id="lblBienvenida" text="Bienvenido" />
    <Label fx:id="welcomeText1" layoutX="92.0" layoutY="30.0" text="Insertar Producto">
       <font>
          <Font size="14.0" />
