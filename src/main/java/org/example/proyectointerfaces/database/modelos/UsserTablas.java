@@ -1,4 +1,4 @@
-package org.example.proyectointerfaces.database;
+package org.example.proyectointerfaces.database.modelos;
 
 public class UsserTablas {
     private int id;
