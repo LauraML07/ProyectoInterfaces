@@ -28,7 +28,7 @@
                <TextField fx:id="InsMarca" onAction="#onInsertButtonClick" prefWidth="180.0" promptText="Marca" />
                <TextField fx:id="InsMatricula" prefWidth="180.0" promptText="Matricula" />
                <TextField fx:id="InsPuertas" prefWidth="180.0" promptText="Nº Puertas" />
-                <Button styleClass="boton-insertar" onAction="#onInsertButtonClick"  text="Insertar producto" />
+                <Button onAction="#onInsertButtonClick" styleClass="boton-insertar" text="Insertar producto" />
                <Label fx:id="insertCoche" />
             </children>
             <padding>
@@ -49,7 +49,7 @@
                <TextField fx:id="ActuMarca" prefWidth="180.0" promptText="Marca" />
                <TextField fx:id="ActuMatricula" prefWidth="180.0" promptText="Matricula" />
                <TextField fx:id="ActuPuertas" prefWidth="180.0" promptText="Nº Puertas" />
-               <Button styleClass="boton-actualizar" mnemonicParsing="false" onAction="#onActualizarButtonClick"  text="Actualizar" />
+               <Button mnemonicParsing="false" onAction="#onActualizarButtonClick" styleClass="boton-actualizar" text="Actualizar" />
             </children>
             <padding>
                <Insets left="20.0" right="20.0" />
@@ -66,7 +66,7 @@
                   </VBox.margin>
                </Label>
                <TextField fx:id="EliminarId" prefWidth="180.0" promptText="Id" />
-               <Button styleClass="boton-peligro" mnemonicParsing="false" onAction="#onEliminarButtonClick"  text="Eliminar" />
+               <Button mnemonicParsing="false" onAction="#onEliminarButtonClick" styleClass="boton-peligro" text="Eliminar" />
                <Label fx:id="elimText" />
             </children>
             <padding>
@@ -87,7 +87,8 @@
       </VBox.margin>
    </Label>
    <TextField fx:id="BuscarId" maxWidth="200.0" prefWidth="180.0" promptText="Id" />
-   <Button styleClass="boton-buscar" mnemonicParsing="false" onAction="#onBuscarPorIDButtonClick"  text="Buscar por Id" />
+   <Button mnemonicParsing="false" onAction="#onBuscarPorIDButtonClick" styleClass="boton-buscar" text="Buscar por Id" />
+   <Label fx:id="resultadoBusquedaId" />
    <Label fx:id="welcomeText11111" layoutX="104.0" layoutY="790.0" text="Ir a la tabla">
       <font>
          <Font size="14.0" />
@@ -96,7 +97,7 @@
          <Insets top="10.0" />
       </VBox.margin>
    </Label>
-   <Button styleClass="boton-tabla" mnemonicParsing="false" onAction="#onIrTablaButtonClick"  text="Ir a la tabla" />
+   <Button mnemonicParsing="false" onAction="#onIrTablaButtonClick" styleClass="boton-tabla" text="Ir a la tabla" />
    <stylesheets>
       <URL value="@../../../css/style.css" />
    </stylesheets>

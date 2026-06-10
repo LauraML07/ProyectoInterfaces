@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.proyectointerfaces.dao.CocheDAO;
 import org.example.proyectointerfaces.dao.CocheDAOImpl;
-import org.example.proyectointerfaces.database.CochesTablas;
+import org.example.proyectointerfaces.database.modelos.CochesTablas;
 
 import java.util.List;
 

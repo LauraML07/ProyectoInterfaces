@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.proyectointerfaces.dao.CocheDAO;
 import org.example.proyectointerfaces.dao.CocheDAOImpl;
-import org.example.proyectointerfaces.database.CochesTablas;
+import org.example.proyectointerfaces.database.modelos.CochesTablas;
 
 import java.time.LocalDate;
 
@@ -37,8 +37,11 @@ public class MenuControler {
     public Label lblBienvenida;
     @FXML
     public Label insertCoche;
-
+    @FXML
     public Label elimText;
+    @FXML
+    public Label resultadoBusquedaId;
+
     CocheDAO cocheDAO = new CocheDAOImpl();
 
     public void setTexto(String usuario) {
@@ -77,8 +80,26 @@ public class MenuControler {
 
     @FXML
     public void onBuscarPorIDButtonClick(ActionEvent actionEvent) {
-        int id = Integer.parseInt(BuscarId.getText());
-        System.out.println(cocheDAO.buscarPorId(id));
+        resultadoBusquedaId.setText("");
+        try {
+            String textoId = BuscarId.getText().trim();
+            if (textoId.isEmpty()){
+                resultadoBusquedaId.setText("Por favor, introduce un ID.");
+                return;
+            }
+            int id = Integer.parseInt(textoId);
+            CochesTablas coche = cocheDAO.buscarPorId(id);
+            if (coche != null) {
+                resultadoBusquedaId.setText(coche.toString());
+            } else {
+                resultadoBusquedaId.setText("No existe ningún vehículo con el ID " + id);
+            }
+        } catch (NumberFormatException e) {
+            resultadoBusquedaId.setText("El ID debe ser un número válido.");
+        } catch (Exception e) {
+            resultadoBusquedaId.setText("Error al realizar la búsqueda.");
+            e.printStackTrace();
+        }
     }
 
     @FXML

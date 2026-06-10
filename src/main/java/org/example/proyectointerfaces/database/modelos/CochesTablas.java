@@ -1,4 +1,4 @@
-package org.example.proyectointerfaces.database;
+package org.example.proyectointerfaces.database.modelos;
 
 import java.time.LocalDate;
 

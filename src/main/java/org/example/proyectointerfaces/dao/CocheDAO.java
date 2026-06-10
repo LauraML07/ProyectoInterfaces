@@ -1,6 +1,6 @@
 package org.example.proyectointerfaces.dao;
 
-import org.example.proyectointerfaces.database.CochesTablas;
+import org.example.proyectointerfaces.database.modelos.CochesTablas;
 
 import java.util.List;
 

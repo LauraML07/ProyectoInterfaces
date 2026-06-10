@@ -1,9 +1,8 @@
 package org.example.proyectointerfaces.dao;
 
 
-import org.example.proyectointerfaces.database.CochesTablas;
+import org.example.proyectointerfaces.database.modelos.CochesTablas;
 import org.example.proyectointerfaces.database.DatabaseConnection;
-import org.example.proyectointerfaces.database.Tablas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -108,7 +107,7 @@ public class CocheDAOImpl implements CocheDAO {
                         rs.getString("marca"),
                         rs.getString("matricula"),
                         LocalDate.parse(rs.getString("fecha_matricula")),
-                        rs.getInt("n-puertas")
+                        rs.getInt("n_puertas")
                 );
             }
         } catch (SQLException e) {

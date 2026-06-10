@@ -1,7 +1,6 @@
 package org.example.proyectointerfaces.dao;
 
 import org.example.proyectointerfaces.database.DatabaseConnection;
-import org.example.proyectointerfaces.database.UsserTablas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
