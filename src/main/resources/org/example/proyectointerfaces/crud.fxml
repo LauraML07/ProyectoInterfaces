@@ -24,6 +24,9 @@
                   <font>
                      <Font size="14.0" />
                   </font>
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
                </Label>
                <TextField fx:id="InsMarca" onAction="#onInsertButtonClick" prefWidth="180.0" promptText="Marca" />
                <TextField fx:id="InsMatricula" prefWidth="180.0" promptText="Matricula" />
